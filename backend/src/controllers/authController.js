@@ -10,14 +10,14 @@ const authController = {
       res.cookie("accessToken", accessToken, {
         httpOnly: true,
         secure: true,
-        sameSite: "none",
+        sameSite: "Lax",
         maxAge: ms("15m"),
       });
 
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
         secure: true,
-        sameSite: "none",
+        sameSite: "Lax",
         maxAge: ms("14d"),
       });
 
@@ -60,7 +60,7 @@ const authController = {
       res.cookie("accessToken", accessToken, {
         httpOnly: true,
         secure: true,
-        sameSite: "none",
+        sameSite: "Lax",
         maxAge: ms("15m"),
       });
 
