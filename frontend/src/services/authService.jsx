@@ -2,7 +2,7 @@ import authorizedAxiosInstance from "~/lib/authorizedAxios";
 
 const authService = {
   signIn: async (username, password) => {
-    const res = await authorizedAxiosInstance.post(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/signin`, {
+    const res = await authorizedAxiosInstance.post(`/auth/signin`, {
       username,
       password,
     });

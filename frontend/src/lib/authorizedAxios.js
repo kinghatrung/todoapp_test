@@ -12,7 +12,7 @@ export const injectStore = (mainStore) => {
 let authorizedAxiosInstance = axios.create();
 authorizedAxiosInstance.defaults.timeout = 1000 * 60;
 authorizedAxiosInstance.defaults.withCredentials = true;
-authorizedAxiosInstance.defaults.baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+authorizedAxiosInstance.defaults.baseURL = "/api";
 
 authorizedAxiosInstance.interceptors.request.use(
   (config) => {
