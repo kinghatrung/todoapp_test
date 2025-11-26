@@ -10,7 +10,7 @@ const authController = {
       res.cookie("accessToken", accessToken, {
         httpOnly: true,
         secure: true,
-        sameSite: "none",
+        sameSite: "Lax",
         domain: "todoappvn.vercel.app",
         maxAge: ms("15m"),
       });
@@ -18,7 +18,7 @@ const authController = {
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
         secure: true,
-        sameSite: "none",
+        sameSite: "Lax",
         domain: "todoappvn.vercel.app",
         maxAge: ms("14d"),
       });
@@ -62,7 +62,7 @@ const authController = {
       res.cookie("accessToken", accessToken, {
         httpOnly: true,
         secure: true,
-        sameSite: "none",
+        sameSite: "Lax",
         domain: "todoappvn.vercel.app",
         maxAge: ms("15m"),
       });
