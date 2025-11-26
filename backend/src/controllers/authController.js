@@ -11,6 +11,7 @@ const authController = {
         httpOnly: true,
         secure: true,
         sameSite: "Lax",
+        domain: "todoappvn.vercel.app",
         maxAge: ms("15m"),
       });
 
@@ -18,6 +19,7 @@ const authController = {
         httpOnly: true,
         secure: true,
         sameSite: "Lax",
+        domain: "todoappvn.vercel.app",
         maxAge: ms("14d"),
       });
 
@@ -61,6 +63,7 @@ const authController = {
         httpOnly: true,
         secure: true,
         sameSite: "Lax",
+        domain: "todoappvn.vercel.app",
         maxAge: ms("15m"),
       });
 
