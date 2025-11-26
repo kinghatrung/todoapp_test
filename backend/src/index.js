@@ -1,0 +1,39 @@
+import express from "express";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+
+import { connect } from "./config/db.js";
+import authMiddleware from "./middlewares/authMiddleware.js";
+import authRouter from "./routes/authRouter.js";
+import userRouter from "./routes/userRouter.js";
+import taskRouter from "./routes/taskRouter.js";
+
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 5001;
+
+app.use(express.json());
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: ["https://todoappvn.vercel.app", "http://localhost:3000", process.env.BASE_URL],
+    credentials: true,
+    methods: "GET, POST, PUT, DELETE, PATCH",
+    maxAge: 3600,
+  })
+);
+
+// Routes
+app.use("/api/auth", authRouter);
+
+app.use(authMiddleware.isAuthorized);
+app.use("/api/users", userRouter);
+app.use("/api/tasks", taskRouter);
+
+connect().then(() => {
+  app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
+  });
+});
