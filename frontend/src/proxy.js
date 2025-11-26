@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 
-export function proxy(req) {
+export async function proxy(req) {
   const accessToken = req.cookies.get("accessToken")?.value;
+  const res = await getSession(req, res);
   const { pathname } = req.nextUrl;
 
   console.log("token", accessToken, "req", req);
